@@ -66,11 +66,11 @@ public class Poker {
                     }
                 } while (checkb = false);
             }
+            checkb = false;
             do {
-                checkb = false;
-                System.out.print("\nCurrent chips: " + chips + "\nAnte: ");
-                temp = in.nextLine();
-                if (!temp.isEmpty()) {
+                System.out.print("\nCurrent chips: " + chips);
+                System.out.print("\nAnte: ");
+                temp = in.next() + in.nextLine();
                     try {
                         check = Integer.parseInt(temp);
                         if (check < 1 || check > 25) {
@@ -84,9 +84,6 @@ public class Poker {
                     } catch (NumberFormatException e) {
                         System.out.println("Please enter a valid number.");
                     }
-                } else {
-                    System.out.println("Enter the amount of chips you would like to ante to start!");
-                }
             } while (checkb == false);
             checkb = false;
             shuffleAndDeal();
@@ -254,7 +251,6 @@ public class Poker {
                     player.takeCard(deck.remove(0));
                 }
             } else {
-                sortCards();
                 player.discardCard(player.getCards().get(card1-1));
                 player.takeCard(deck.remove(0));
             }
@@ -268,7 +264,7 @@ public class Poker {
                 card1 = card2;
                 card2 = temp;
             }
-            if (card2 > card3) {
+            if (card2 > card3 && card3 != 0) {
                 int temp = card2;
                 card2 = card3;
                 card3 = temp;
