@@ -74,9 +74,9 @@ public class Poker {
                     try {
                         check = Integer.parseInt(temp);
                         if (check < 1 || check > 25) {
-                            System.out.println("Wager must be between 1 and 25 chips.");
+                            System.out.println("Ante must be between 1 and 25 chips.");
                         } else if (check > chips) {
-                            System.out.println("Wager must be between 1 and " + chips);
+                            System.out.println("Ante must be between 1 and " + chips);
                         } else {
                             ante = check;
                             checkb = true;
@@ -85,7 +85,7 @@ public class Poker {
                         System.out.println("Please enter a valid number.");
                     }
                 } else {
-                    System.out.println("Enter the amount of chips you would like to wager to start!");
+                    System.out.println("Enter the amount of chips you would like to ante to start!");
                 }
             } while (checkb == false);
             checkb = false;
